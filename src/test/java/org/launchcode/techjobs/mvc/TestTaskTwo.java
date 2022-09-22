@@ -1,3 +1,4 @@
+
 package org.launchcode.techjobs.mvc;
 
 
@@ -6,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -29,8 +29,8 @@ public class TestTaskTwo {
     }
 
     /*
-    * Looks for a <table> element anywhere within the job listing page
-    * */
+     * Looks for a <table> element anywhere within the job listing page
+     * */
     @Test
     public void testJobListingUsesTable () throws Exception {
         mockMvc.perform(get("/list/jobs?column=coreCompetency&value=Ruby"))
@@ -39,8 +39,8 @@ public class TestTaskTwo {
     }
 
     /*
-    * Looks for the class 'table-listing' on the table in the job listing page
-    * */
+     * Looks for the class 'table-listing' on the table in the job listing page
+     * */
     @Test
     public void testJobListingUsesCSSClass () throws Exception {
         mockMvc.perform(get("/list/jobs?column=coreCompetency&value=Ruby"))
@@ -49,8 +49,8 @@ public class TestTaskTwo {
     }
 
     /*
-    * Looking at the first job table only, verify that all job fields are listed
-    * */
+     * Looking at the first job table only, verify that all job fields are listed
+     * */
     @Test
     public void testJobListingDisplaysAllJobFields () throws Exception {
         mockMvc.perform(get("/list/jobs?column=coreCompetency&value=Ruby"))
@@ -64,8 +64,8 @@ public class TestTaskTwo {
     }
 
     /*
-    * Verifies that there are exactly 3 Ruby jobs listed
-    * */
+     * Verifies that there are exactly 3 Ruby jobs listed
+     * */
     @Test
     public void testJobListingDisplaysAllRelevantJobs () throws Exception {
         mockMvc.perform(get("/list/jobs?column=coreCompetency&value=Ruby"))
@@ -77,11 +77,11 @@ public class TestTaskTwo {
     }
 
     /*
-    * Checks for the "View All" link on /list
-    * */
+     * Checks for the "View All" link on /list
+     * */
     @Test
     public void testViewAllLinkExists() throws Exception {
-        ResultActions resultActions = mockMvc.perform(get("/list"))
+        mockMvc.perform(get("/list"))
                 .andExpect(status().isOk())
                 .andExpect(xpath("//table/tr/td//a[starts-with(@href, '/list/jobs?column=all')]").exists());
     }
